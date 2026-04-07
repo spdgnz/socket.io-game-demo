@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agar Game</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body>
+
+	<div id="container">
+		<div id="game-field" class="col-sm-12">
+
+			<!--<canvas id="the-canvas" style="background: url('images/starfield.jpg')">-->
+			<canvas id="the-canvas">
+				<!-- our drawing will go here -->
+			</canvas>
+
+			<div id="score-wrapper" class="hiddenOnStart" hidden>
+				<div>Your score: <span class="player-score"></span></div>
+			</div>
+
+			<div id="leader-board-wrapper" class="hiddenOnStart" hidden>
+				<div id="leader-board">
+					<h3 class="text-center">Leaderboard</h3>
+					<hr>
+					<ol class="leader-board">
+						<li class="leaderboard-player"></li>
+					</ol>
+					<hr>
+				</div>
+			</div>
+
+			<div id="game-message-wrapper">
+				<div id="game-message">{{gameMessage}}</div>
+			</div>
+
+		</div>
+		
+	</div>
+
+	<!-- Modals -->
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agar Game</h5>
+                </div>
+                <div class="modal-body">
+                    <form class="name-form">
+						<div class="text-center error-message"></div>
+						<input id="name-input" class="text-input text-center form-control" type="text" name="name-input" placeholder="Enter your name here" required>
+                        <button type="submit" class="btn play-button play-guest">Play!</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+					<div id="instructions">
+						<label id="how-to-play">How to play:</label>
+						<ul>
+							<li>Move your mouse on the screen to move your character.</li>
+							<li>Absorb orbs by running over them in order to grow your character.</li>
+							<li>The larger you get the slower you are.</li>
+							<li>Objective: Absorb other players to get even larger but not lose speed.</li>
+							<li>The larger player absorbs the smaller player.</li>
+						</ul>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- START MODAL -->
+    <div id="spawnModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Agar Clone</h5>
+            </div>
+            <div class="modal-body">
+                <h3 class="text-center">Game over</h3>
+                <button id="play-again-btn" type="button" class="btn play-button start-game">Play Again!</button>
+            </div>
+            <div class="modal-footer">
+                <div id="instructions">
+                    <label id="how-to-play">How to play:</label>
+                    <ul>
+                        <li>Move your mouse on the screen to move your character.</li>
+                        <li>Absorb orbs by running over them in order to grow your character.</li>
+                        <li>The larger you get the slower you are.</li>
+                        <li>Objective: Absorb other players to get even larger but not lose speed.</li>
+                        <li>The larger player absorbs the smaller player.</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+
+	<script src="/ui.js"></script>
+	<script src="/canvas.js"></script>
+	<script src="/socket.js"></script>
+</body>
+</html>
